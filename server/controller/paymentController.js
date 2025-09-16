@@ -1,7 +1,7 @@
 import Razorpay from 'razorpay'
 import { Payment } from '../models/paymentModel.js'
 import User from '../models/userModel.js'
-import { razorpay } from '../server.js'
+import { razorpay } from '../api/server.js'
 import createError from '../utils/error.js'
 import crypto from 'crypto'
 
