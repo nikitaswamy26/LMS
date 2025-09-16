@@ -23,5 +23,9 @@ if(process.env.NODE_ENV !== 'production'){
 }else{
     await connectDb()
 }
+
+app.listen(process.env.PORT, () => {
+    console.log(`server is running on http://localhost:${process.env.PORT}`);
+})
 // Export serverless handler for Vercel
 export default serverless(app)
