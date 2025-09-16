@@ -6,6 +6,7 @@ import LectureSlice from './slices/LectureSlice'
 import RazorpaySlice from './slices/RazorpaySlice'
 import StatSlice from './slices/StatSlice'
 
+
 const store = configureStore({
     reducer: {
         auth: AuthSlice,
