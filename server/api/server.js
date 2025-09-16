@@ -1,5 +1,5 @@
-import app from "./app.js";
-import { connectDb } from './database/db.js'
+import app from "../app.js";
+import { connectDb } from '../database/db.js'
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay'
 import serverless from 'serverless-http'
