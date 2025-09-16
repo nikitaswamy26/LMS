@@ -2,7 +2,6 @@ import app from "../app.js";
 import { connectDb } from '../database/db.js'
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay'
-import serverless from 'serverless-http'
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
@@ -28,4 +27,4 @@ app.listen(process.env.PORT, () => {
     console.log(`server is running on http://localhost:${process.env.PORT}`);
 })
 // Export serverless handler for Vercel
-export default serverless(app)
+export default app
