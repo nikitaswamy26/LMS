@@ -22,7 +22,7 @@ function HomeLayout({ children }) {
 
     return (
         <div className='relative'>
-            <div className="drawer">
+            <div className="drawer bg-gradient-to-tr from-gray-900  to-gray-800">
                 <label htmlFor="my-drawer-2"></label>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="p-5">
@@ -30,7 +30,7 @@ function HomeLayout({ children }) {
                         <FiMenu size={"30px"} />
                     </label>
                 </div>
-                <div className="drawer-side z-10">
+                <div className="drawer-side z-50">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 pt-12 gap-8 w-60 lg:w-80 min-h-full bg-base-200 text-base-content text-xl">
                         {

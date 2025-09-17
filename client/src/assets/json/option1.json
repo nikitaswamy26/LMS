@@ -1,7 +1,7 @@
 {
     "fullScreen": {
         "enable": true,
-        "zIndex": -1
+        "zIndex": 0
     },
     "background": {
         "repeat": "no-repeat",
@@ -34,11 +34,12 @@
         "color": {
             "value": "random"
         },
+        
         "links": {
             "color": "random",
             "distance": 150,
             "enable": true,
-            "opacity": 0.5,
+            "opacity": 0.03,
             "width": 1
         },
         "move": {
@@ -59,7 +60,7 @@
             "value": 100
         },
         "opacity": {
-            "value": 0.5
+            "value": 0.2
         },
         "shape": {
             "type": "circle"
