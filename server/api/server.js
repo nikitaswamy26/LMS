@@ -3,6 +3,9 @@ import { connectDb } from '../database/db.js'
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay'
 
+connectDb()
+
+
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.API_KEY,
@@ -14,8 +17,7 @@ export const razorpay = new Razorpay({
     key_secret: process.env.RAZORPAY_API_SECRET
 })
 
-    app.listen(process.env.PORT, () => {
-    connectDb()
+app.listen(process.env.PORT, () => {
     console.log(`server is running on http://localhost:${process.env.PORT}`);
 })
 
