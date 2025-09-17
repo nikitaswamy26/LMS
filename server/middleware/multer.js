@@ -6,6 +6,7 @@ const upload = multer({
     limits: { fileSize: 50 * 1024 * 1024 },
     fileFilter: (_req, file, cb) => {
         let ext = path.extname(file.originalname)
+        
 
         if (ext !== ".jpg" &&
             ext !== ".png" &&
@@ -16,6 +17,7 @@ const upload = multer({
             cb(new Error(`Unsupported file type! ${ext}`), false)
             return;
         }
+        
         cb(null, true)
     }
 })

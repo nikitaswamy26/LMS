@@ -40,7 +40,9 @@ export const signup = async (req, res, next) => {
 
         if (req.file) {
             try {
-                const result = await v2.uploader.upload(req.file.path, {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'image',
                     folder: 'lms',
                     width: 250,
@@ -52,7 +54,7 @@ export const signup = async (req, res, next) => {
                     user.avatar.public_id = result.public_id
                     user.avatar.secure_url = result.secure_url
 
-                    fs.rm(`uploads/${req.file.filename}`)
+                    
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file not uploaded , plese try again"))
@@ -265,7 +267,9 @@ export const updateProfile = async (req, res, next) => {
                 resource_type: 'image'
             })
             try {
-                const result = await v2.uploader.upload(req.file.path, {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+                const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'image',
                     folder: 'lms',
                     width: 250,
@@ -277,7 +281,7 @@ export const updateProfile = async (req, res, next) => {
                     user.avatar.public_id = result.public_id
                     user.avatar.secure_url = result.secure_url
 
-                    fs.rm(`uploads/${req.file.filename}`)
+                    
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file not uploaded , plese try again"))

@@ -32,6 +32,7 @@ export const createCourse = async (req, res, next) => {
         if (!title || !description || !category || !createdBy) {
             return next(createError(400, "Please enter all input fields"))
         }
+        
         const newCourse = new Course({
             title,
             description,
@@ -59,14 +60,16 @@ export const createCourse = async (req, res, next) => {
         }
         if (req.file) {
             try {
-                const result = await v2.uploader.upload(req.file.path, {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'image',
                     folder: 'lms'
                 })
+                console.log(`File:  `,req.file);
                 if (result) {
                     newCourse.thumbnail.public_id = result.public_id
                     newCourse.thumbnail.secure_url = result.secure_url
-                    fs.rm(`uploads/${req.file.filename}`)
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file upload failed"));
@@ -99,17 +102,19 @@ export const updateCourse = async (req, res, next) => {
         )
         if (req.file) {
             try {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
                 await v2.uploader.destroy(course.thumbnail.public_id, {
                     resource_type: 'image'
                 })
-                const result = await v2.uploader.upload(req.file.path, {
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'image',
                     folder: 'lms'
                 })
                 if (result) {
                     course.thumbnail.public_id = result.public_id
                     course.thumbnail.secure_url = result.secure_url
-                    fs.rm(`uploads/${req.file.filename}`)
+                    
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file upload failed"));
@@ -196,7 +201,9 @@ export const addLecturesToCourse = async (req, res, next) => {
         }
         if (req.file) {
             try {
-                const result = await v2.uploader.upload(req.file.path, {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'video',
                     folder: 'lms'
                 })
@@ -204,7 +211,7 @@ export const addLecturesToCourse = async (req, res, next) => {
                     lectureData.lecture.public_id = result.public_id
                     lectureData.lecture.secure_url = result.secure_url
 
-                    fs.rm(`uploads/${req.file.filename}`)
+                    
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file upload failed"))
@@ -253,7 +260,9 @@ export const updateLectures = async (req, res, next) => {
                         resource_type: 'video'
                     }
                 )
-                const result = await v2.uploader.upload(req.file.path, {
+                const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+                const result = await v2.uploader.upload(dataURI, {
                     resource_type: 'video',
                     folder: 'lms'
                 })
@@ -261,7 +270,7 @@ export const updateLectures = async (req, res, next) => {
                     lectureToUpdate.lecture.public_id = result.public_id
                     lectureToUpdate.lecture.secure_url = result.secure_url
 
-                    fs.rm(`uploads/${req.file.filename}`)
+                    
                 }
             } catch (error) {
                 return next(createError(500, error.message || "file upload failed"))
