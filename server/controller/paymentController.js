@@ -127,36 +127,39 @@ export const cancelSubscription = async (req, res, next) => {
         const refundPeriod = 14 * 24 * 60 * 60 * 1000;
 
         // Check if the refund period is still valid
-        if (timeSinceSubscribed <= refundPeriod) {
-            try {
-                // Attempt to refund the payment using Razorpay
-                const refund = await razorpay.payments.refund(payment.payment_id, {
-                    speed: 'optimum'
-                });
+        // if (timeSinceSubscribed <= refundPeriod) {
+        //     try {
+        //         // Attempt to refund the payment using Razorpay
+        //         const refund = await razorpay.payments.refund(payment.payment_id, {
+        //             speed: 'optimum'
+        //         });
 
-                // Handle the refund status here, check if it was successful
-                if (refund.status === 'processed') {
-                    // Refund successful, update user's subscription status and delete payment record
-                    user.subscription.id = undefined;
-                    user.subscription.status = undefined;
-                    await user.save();
-                    await payment.deleteOne();
-                } else {
-                    return next(createError(500, "Refund processing failed"));
-                }
-            } catch (refundError) {
-                return next(createError(500, "Error refunding payment: " + refundError.message));
-            }
-        } else {
-            return next(createError(400, "Refund period is over, so there will not be any refunds provided"));
-        }
+        //         // Handle the refund status here, check if it was successful
+        //         if (refund.status === 'processed') {
+        //             // Refund successful, update user's subscription status and delete payment record
+        //             user.subscription.id = undefined;
+        //             user.subscription.status = undefined;
+        //             await user.save();
+        //             await payment.deleteOne();
+        //         } else {
+        //             return next(createError(500, "Refund processing failed"));
+        //         }
+        //     } catch (refundError) {
+        //         return next(createError(500, "Error refunding payment: " + refundError.message));
+        //     }
+        // } else {
+        //     return next(createError(400, "Refund period is over, so there will not be any refunds provided"));
+        // }
 
         res.status(200).json({
             success: true,
             message: "Subscription canceled successfully"
         });
     } catch (error) {
+        console.log("[Cancel Subscription Error]: ", error);
+        
         return next(createError(500, error.message));
+
     }
 }
 
