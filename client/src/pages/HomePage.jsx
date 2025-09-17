@@ -8,7 +8,7 @@ import HomeLayout from "../layouts/HomeLayout"
 const HomePage = () => {
     return (
         <HomeLayout>
-            <div className="relative min-h-screen">
+            <div className="relative min-h-screen py-10">
                 <Particle option={option1} className="absolute inset-0 opacity-20" />
                 <div className="relative z-10 flex lg:px-12 px-6 pb-8 lg:pb-0 flex-col lg:flex-row justify-center items-center min-h-screen">
                     <div className="lg:px-4 md:px-4 space-y-8 lg:w-1/2 max-w-2xl">
