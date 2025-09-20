@@ -64,9 +64,14 @@ const HomePage = () => {
                                 </button>
                             </Link>
                             <Link to={'/contact'} className="w-full lg:w-fit">
+                            
+                {/*
                                 <button className="w-full lg:w-52 py-4 px-6 lg:text-lg font-semibold bg-transparent text-white border-2 border-yellow-500/50 hover:border-yellow-400 hover:bg-yellow-500/10 backdrop-blur-sm rounded-xl transition-all duration-300">
                                     Get Free Demo
-                                </button>
+                                </button>  
+
+                                */}
+                                
                             </Link>
                         </div>
 

@@ -29,13 +29,13 @@ function Footer() {
                     <div className="flex flex-col items-center lg:items-start">
                         <h3 className="text-lg font-semibold mb-3 text-yellow-500">Connect With Us</h3>
                         <div className="flex items-center gap-5 text-2xl">
-                            <Link to="https://github.com/MayankChandratre1" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
+                            <Link to="https://github.com/nikitaswamy26" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
                                 <BsGithub />
                             </Link>
-                            <Link to="https://linkedin.com" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
+                            <Link to="https://www.linkedin.com/in/nikita-swamy-854193260/" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
                                 <BsLinkedin />
                             </Link>
-                            <Link to="https://twitter.com" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
+                            <Link to="https://x.com/Nns_2609" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">
                                 <BsTwitter />
                             </Link>
                             <Link to="https://facebook.com" target="_blank" className="text-gray-300 hover:text-yellow-500 transition-all duration-300">

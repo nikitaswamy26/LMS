@@ -95,7 +95,7 @@ function Contact() {
                                             </div>
                                             <div>
                                                 <p className="text-white font-semibold">Email</p>
-                                                <p className="text-gray-400">support@learningms.com</p>
+                                                <p className="text-gray-400">nikitasakole@gmail.com</p>
                                             </div>
                                         </div>
                                         
@@ -105,7 +105,7 @@ function Contact() {
                                             </div>
                                             <div>
                                                 <p className="text-white font-semibold">Phone</p>
-                                                <p className="text-gray-400">+91 98765 43210</p>
+                                                <p className="text-gray-400">+91 8805645712</p>
                                             </div>
                                         </div>
                                         
@@ -115,7 +115,7 @@ function Contact() {
                                             </div>
                                             <div>
                                                 <p className="text-white font-semibold">Location</p>
-                                                <p className="text-gray-400">Mumbai, Maharashtra, India</p>
+                                                <p className="text-gray-400">Latur Maharashtra, India</p>
                                             </div>
                                         </div>
                                     </div>

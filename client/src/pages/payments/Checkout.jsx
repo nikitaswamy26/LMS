@@ -28,7 +28,7 @@ function Checkout() {
         const options = {
             key: razorpay.key,
             subscription_id: razorpay.subscription_id,
-            name: "Mayank Chandratre Edutech",
+            name: "LMS Project",
             description: "Yearly Subscription",
             theme: {
                 color: "#eab308"
